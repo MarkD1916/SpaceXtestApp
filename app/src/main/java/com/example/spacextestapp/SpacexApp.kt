@@ -14,9 +14,4 @@ class SpacexApp: Application() {
             .build()
     }
 
-//    companion object {
-//        val mainComponent: MainComponent by lazy {
-//            DaggerMainComponent.create()
-//        }
-//    }
 }

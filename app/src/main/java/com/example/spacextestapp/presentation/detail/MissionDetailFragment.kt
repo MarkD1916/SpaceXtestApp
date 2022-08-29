@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
-import coil.transform.CircleCropTransformation
 import com.example.spacextestapp.R
 import com.example.spacextestapp.SpacexApp
 import com.example.spacextestapp.databinding.FragmentDetailMissionBinding
@@ -19,10 +17,6 @@ import com.example.spacextestapp.ext.toLaunchResultColorString
 import com.example.spacextestapp.ext.toLaunchResultString
 import com.example.spacextestapp.presentation.LaunchesViewModel
 import com.example.spacextestapp.presentation.detail.adapters.CrewAdapter
-import com.example.spacextestapp.presentation.list.LaunchesListEvent
-import com.example.spacextestapp.presentation.list.adapters.AdapterActionListener
-import com.example.spacextestapp.presentation.list.adapters.LaunchesAdapter
-import com.example.spacextestapp.presentation.list.adapters.LaunchesStateAdapter
 import javax.inject.Inject
 
 class MissionDetailFragment : Fragment() {

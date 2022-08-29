@@ -1,11 +1,9 @@
 package com.example.spacextestapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.navArgs
-import androidx.navigation.navArgs
 import com.example.spacextestapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
