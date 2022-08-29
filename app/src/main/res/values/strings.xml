@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SpacexTestApp</string>
+    <string name="default_error_text">Error please try again</string>
+    <string name="try_again">Try again</string>
+    <string name="load_error">Load Error</string>
+    <string name="mission_name">Mission: %1$s</string>
+    <string name="flight_count">Count of first stage reuse: %1$s</string>
+    <string name="launch_result">Launch was: %1$s</string>
+</resources>

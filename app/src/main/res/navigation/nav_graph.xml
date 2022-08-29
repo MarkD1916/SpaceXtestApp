@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/missionListFragment">
+
+    <fragment
+        android:id="@+id/missionListFragment"
+        android:name="com.example.spacextestapp.presentation.list.MissionListFragment"
+        android:label="MissionListFragment" >
+
+        <action
+            android:id="@+id/action_missionListFragment_to_missionDetailFragment"
+            app:destination="@id/missionDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/missionDetailFragment"
+        android:name="com.example.spacextestapp.presentation.detail.MissionDetailFragment"
+        android:label="MissionDetailFragment" >
+
+        <argument
+            android:name="detail"
+            app:argType="com.example.spacextestapp.domain.model.DetailLaunchData" />
+    </fragment>
+</navigation>
