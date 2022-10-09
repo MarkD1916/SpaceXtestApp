@@ -1,6 +1,7 @@
 package com.example.spacextestapp.presentation.list
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.example.spacextestapp.di.DaggerActivityViewModelComponent
 import com.example.spacextestapp.domain.model.DetailLaunchData
 import com.example.spacextestapp.ext.navigateEvent
 import com.example.spacextestapp.presentation.LaunchesViewModel
+import com.example.spacextestapp.presentation.MyBroadcastReceiver
 import com.example.spacextestapp.presentation.list.adapters.AdapterActionListener
 import com.example.spacextestapp.presentation.list.adapters.LaunchesAdapter
 import com.example.spacextestapp.presentation.list.adapters.LaunchesStateAdapter
@@ -24,6 +26,7 @@ import com.example.spacextestapp.util.UiEvent
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 class MissionListFragment : Fragment() {
 
@@ -48,6 +51,12 @@ class MissionListFragment : Fragment() {
 
     }
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -60,6 +69,7 @@ class MissionListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupLaunchesList()
+
     }
 
 
@@ -123,6 +133,10 @@ class MissionListFragment : Fragment() {
             }
         }
     }
+
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

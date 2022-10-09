@@ -1,9 +1,12 @@
 package com.example.spacextestapp.presentation.list.adapters
 
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -11,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.example.spacextestapp.R
+
 import com.example.spacextestapp.databinding.ItemLaunchesBinding
 import com.example.spacextestapp.domain.model.DetailLaunchData
 import com.example.spacextestapp.domain.model.ListAndDetailData
 import com.example.spacextestapp.ext.toLaunchResultColorString
 import com.example.spacextestapp.ext.toLaunchResultString
+
 
 interface AdapterActionListener {
 
@@ -31,9 +36,17 @@ class LaunchesAdapter(
         LaunchesAdapter.Holder>(LaunchesDiffCallback()),
     View.OnClickListener {
 
+    private val lastPosition = -1
+
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
         val launch = getItem(position)?.list ?: return
+
+        val animation: Animation = AnimationUtils.loadAnimation(
+            context,
+            if (position > lastPosition) R.anim.up_from_bottom else R.anim.down_from_top
+        )
+        holder.itemView.startAnimation(animation)
 
         with(holder.binding) {
             launchItemId.tag = getItem(position)?.detail
@@ -64,6 +77,11 @@ class LaunchesAdapter(
             placeholder(R.drawable.ic_image_load_place_holder)
             transformations(CircleCropTransformation())
         }
+    }
+
+    override fun onViewDetachedFromWindow(holder: Holder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.itemView.clearAnimation()
     }
 
     class Holder(
