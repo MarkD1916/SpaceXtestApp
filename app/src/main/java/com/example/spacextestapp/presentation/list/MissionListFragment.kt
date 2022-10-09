@@ -18,10 +18,7 @@ import com.example.spacextestapp.domain.model.DetailLaunchData
 import com.example.spacextestapp.ext.navigateEvent
 import com.example.spacextestapp.presentation.LaunchesViewModel
 import com.example.spacextestapp.presentation.MyBroadcastReceiver
-import com.example.spacextestapp.presentation.list.adapters.AdapterActionListener
-import com.example.spacextestapp.presentation.list.adapters.LaunchesAdapter
-import com.example.spacextestapp.presentation.list.adapters.LaunchesStateAdapter
-import com.example.spacextestapp.presentation.list.adapters.TryAgainAction
+import com.example.spacextestapp.presentation.list.adapters.*
 import com.example.spacextestapp.util.UiEvent
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -88,7 +85,7 @@ class MissionListFragment : Fragment() {
 
         val adapterWithLoadState = adapter.withLoadStateFooter(footerAdapter)
 
-        mBinding.launchesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        mBinding.launchesRecyclerView.layoutManager = ScaleLayoutManager(requireContext(), LinearLayoutManager.VERTICAL)
         mBinding.launchesRecyclerView.adapter = adapterWithLoadState
         (mBinding.launchesRecyclerView.itemAnimator as? DefaultItemAnimator)?.supportsChangeAnimations =
             false
